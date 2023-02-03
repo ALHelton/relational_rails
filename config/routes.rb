@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
   get '/palettes', to: 'palettes#index'
   get '/palettes/:id', to: 'palettes#show'
+
+  get '/paints', to: 'paints#index'
+  # get '/paints/:id', to: 'paints#show'
 end
