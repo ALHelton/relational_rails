@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_02_003937) do
+ActiveRecord::Schema.define(version: 2023_02_02_231942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "paints", force: :cascade do |t|
+    t.string "paint_name"
+    t.string "medium"
+    t.integer "series"
+    t.boolean "opaque"
+    t.bigint "palettes_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["palettes_id"], name: "index_paints_on_palettes_id"
+  end
 
   create_table "palettes", force: :cascade do |t|
     t.string "name"
@@ -24,4 +35,5 @@ ActiveRecord::Schema.define(version: 2023_02_02_003937) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "paints", "palettes", column: "palettes_id"
 end
