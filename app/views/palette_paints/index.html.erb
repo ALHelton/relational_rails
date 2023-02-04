@@ -1,0 +1,9 @@
+<h1><%= @palette.name %></h1>
+
+<% @paints.each do |paint| %>
+  <h3>Paint Name: <%= paint.paint_name %></h3>
+  <p>Medium: <%= paint.medium%></p>
+  <p>Series: <%= paint.series%></p>
+  <p>Opaque: <%= paint.opaque%></p>
+  <p>Palette ID: <%= paint.palette_id%></p>
+<% end %>

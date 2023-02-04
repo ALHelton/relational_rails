@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   get '/paints', to: 'paints#index'
   get '/paints/:id', to: 'paints#show'
+
+  get '/palettes/:id/paints', to: 'palette_paints#index'
 end
