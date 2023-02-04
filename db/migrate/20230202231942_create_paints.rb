@@ -5,7 +5,7 @@ class CreatePaints < ActiveRecord::Migration[5.2]
       t.string :medium
       t.integer :series
       t.boolean :opaque
-      t.references :palettes, foreign_key: true
+      t.references :palette, foreign_key: true
 
       t.timestamps
     end

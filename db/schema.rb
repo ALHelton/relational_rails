@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 2023_02_02_231942) do
     t.string "medium"
     t.integer "series"
     t.boolean "opaque"
-    t.bigint "palettes_id"
+    t.bigint "palette_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["palettes_id"], name: "index_paints_on_palettes_id"
+    t.index ["palette_id"], name: "index_paints_on_palette_id"
   end
 
   create_table "palettes", force: :cascade do |t|
@@ -35,5 +35,5 @@ ActiveRecord::Schema.define(version: 2023_02_02_231942) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "paints", "palettes", column: "palettes_id"
+  add_foreign_key "paints", "palettes"
 end
