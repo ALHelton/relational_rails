@@ -1,6 +1,6 @@
 class PalettesController < ApplicationController
   def index
-    @palettes = Palette.all
+    @palettes = Palette.all.order("created_at DESC")
   end
 
   def show
