@@ -18,14 +18,12 @@ RSpec.describe 'Palettes index page' do
 
     expect(page).to have_content(palette_2.name)
     expect(page).to have_content(palette_2.created_at)
-
-    # expect(palette_2.name).to appear_before(palette.name)
   end
 
-  xit 'displays palette names in descending order' do
+  it 'displays palette names in descending order' do
 
     visit "/palettes"
 
-    
+    expect(palette_2.name).to appear_before(palette.name)
   end
 end
