@@ -30,7 +30,7 @@ RSpec.describe 'Palettes index page' do
   it 'displays paints index at the top of page' do
     visit "/palettes"
 
-    click_on "Paints Index"
+    click_on "All Paints"
 
     expect(current_path).to eq("/paints")
   end
