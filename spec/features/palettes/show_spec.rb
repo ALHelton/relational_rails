@@ -7,10 +7,11 @@ RSpec.describe 'Palettes show page' do
     Paint.destroy_all
   end
 
+  let!(:palette) { Palette.create!(name: "Professional Watercolor", brand: "Windsor & Newton", cartridge_capacity: 24, recyclable: true) }
+  let!(:palette_2) { Palette.create!(name: "Professional Goache", brand: "Windsor & Newton", cartridge_capacity: 12, recyclable: false) }
+
   it 'displays palette name and attributes' do
-    palette = Palette.create!(name: "Professional Watercolor", brand: "Windsor & Newton", cartridge_capacity: 24, recyclable: true)
-    palette_2 = Palette.create!(name: "Professional Goache", brand: "Windsor & Newton", cartridge_capacity: 12, recyclable: false)
-  
+
     visit "/palettes/#{palette.id}"
     expect(page).to have_content(palette.name)
     expect(page).to have_content(palette_2.paint_count)
@@ -35,4 +36,11 @@ RSpec.describe 'Palettes show page' do
     expect(page).to_not have_content(palette.recyclable)
   end
 
+  it 'displays the palette paints index page' do
+    visit "/palettes/#{palette.id}"
+
+    click_on "Paints for #{palette.name}"
+
+    expect(current_path).to eq("/palettes/#{palette.id}/paints")
+  end
 end
