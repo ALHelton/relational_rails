@@ -33,6 +33,6 @@ RSpec.describe 'Palettes show page' do
     expect(page).to_not have_content(palette.name)
     expect(page).to_not have_content(palette.cartridge_capacity)
     expect(page).to_not have_content(palette.recyclable)
-
   end
+
 end
