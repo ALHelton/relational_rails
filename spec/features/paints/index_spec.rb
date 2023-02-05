@@ -21,4 +21,12 @@ RSpec.describe 'Paints index page' do
     expect(page).to have_content(paint.opaque)
     expect(page).to have_content(paint.palette_id)
   end
+
+  it 'displays palettes index at the top of page' do
+    visit "/paints"
+
+    click_on "Palettes Index"
+
+    expect(current_path).to eq("/palettes")
+  end
 end
