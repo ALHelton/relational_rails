@@ -26,4 +26,13 @@ RSpec.describe 'Palettes index page' do
 
     expect(palette_2.name).to appear_before(palette.name)
   end
+
+  it 'displays paints index at the top of page' do
+    visit "/palettes"
+
+    click_on "Paints Index"
+
+    expect(current_path).to eq("/paints")
+  end
+
 end
