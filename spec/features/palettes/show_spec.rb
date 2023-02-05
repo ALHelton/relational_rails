@@ -13,9 +13,11 @@ RSpec.describe 'Palettes show page' do
   
     visit "/palettes/#{palette.id}"
     expect(page).to have_content(palette.name)
+    expect(page).to have_content(palette_2.paint_count)
     expect(page).to have_content(palette.brand)
     expect(page).to have_content(palette.cartridge_capacity)
     expect(page).to have_content(palette.recyclable)
+
     expect(page).to_not have_content(palette_2.name)
     expect(page).to_not have_content(palette_2.cartridge_capacity)
     expect(page).to_not have_content(palette_2.recyclable)
@@ -23,9 +25,11 @@ RSpec.describe 'Palettes show page' do
 
     visit "/palettes/#{palette_2.id}"
     expect(page).to have_content(palette_2.name)
+    expect(page).to have_content(palette_2.paint_count)
     expect(page).to have_content(palette_2.brand)
     expect(page).to have_content(palette_2.cartridge_capacity)
     expect(page).to have_content(palette_2.recyclable)
+
     expect(page).to_not have_content(palette.name)
     expect(page).to_not have_content(palette.cartridge_capacity)
     expect(page).to_not have_content(palette.recyclable)
