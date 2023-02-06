@@ -15,7 +15,17 @@ class PalettesController < ApplicationController
     Palette.create(palette_params)
     redirect_to '/palettes'
   end
-  
+
+  def edit
+    @palette = Palette.find(params[:id])
+  end
+
+  def update
+    palette = Palette.find(params[:id])
+    palette.update(palette_params)
+
+    redirect_to "/palettes/#{palette.id}"
+  end
 
   private
 
