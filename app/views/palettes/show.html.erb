@@ -5,3 +5,6 @@
 <p>Brand: <%= @palette.brand %></p>
 <p>Cartridge Capacity: <%= @palette.cartridge_capacity %></p>
 <p>Recyclable? <%= @palette.recyclable %></p>
+<br>
+<%= link_to "Update Palette", "/palettes/#{@palette.id}/edit"%>
+

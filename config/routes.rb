@@ -10,4 +10,7 @@ Rails.application.routes.draw do
 
   get '/palettes/:id/paints', to: 'palette_paints#index'
   post '/palettes', to: 'palettes#create'
+
+  get 'palettes/:id/edit', to: 'palettes#edit'
+  patch '/palettes/:id', to: 'palettes#update'
 end
