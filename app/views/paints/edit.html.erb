@@ -1,0 +1,15 @@
+<%= form_with url: "/paints/#{@paint.id}", method: :patch, local: true do |form| %>
+  <p><%= form.label :paint_name, "Paint Name: " %></p>
+  <p><%= form.text_field :paint_name %></p>
+  <br>
+  <p><%= form.label :medium, "Medium: "  %></p>
+  <p><%= form.text_field :medium %></p>
+  <br>
+  <p><%= form.label :series, "Series: "  %></p>
+  <p><%= form.text_field :series %></p>
+  <br>
+  <p><%= form.label :opaque, "Opaque?: "  %></p>
+  <p><%= form.text_field :opaque %></p>
+  
+  <p><%= form.submit 'Update Paint' %></p>
+<% end %>
