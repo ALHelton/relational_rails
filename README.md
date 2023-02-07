@@ -1,6 +1,6 @@
 # README
 
-Schema:
+## Schema:
 
 <img src="schema_image/schema_image.png"
      alt="Schema"
