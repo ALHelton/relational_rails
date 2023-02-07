@@ -10,7 +10,8 @@ class PalettePaintsController < ApplicationController
 
   def create
     palette = Palette.find(params[:id])
-    paint = palette.paints.create!(paint_params)
+    
+    palette.paints.create!(paint_params)
 
     redirect_to "/palettes/#{palette.id}/paints"
   end

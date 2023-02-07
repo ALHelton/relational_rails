@@ -5,7 +5,7 @@ RSpec.describe 'New Palette Paint' do
   let!(:palette) { Palette.create!(name: "Professional Watercolor", brand: "Windsor & Newton", cartridge_capacity: 24, recyclable: true) }
   let!(:palette_2) { Palette.create!(name: "Professional Goache", brand: "Windsor & Newton", cartridge_capacity: 12, recyclable: false) }
 
-  describe 'user story 13' do
+  describe 'User story 13' do
     describe 'When I visit a Palette paints Index page' do
       it 'I see a link to add a new paint for that palette that leads to a form page' do
         visit "/palettes/#{palette.id}/paints"
