@@ -4,3 +4,5 @@
 <p>Series: <%= @paint.series %></p>
 <p>Opaque: <%= @paint.opaque %></p>
 <p>Palette ID: <%= @paint.palette_id %></p>
+
+<%= link_to "Update Paint", "/paints/#{@paint.id}/edit"%>

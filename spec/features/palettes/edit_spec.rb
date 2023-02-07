@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Update Palette' do
   let!(:palette) { Palette.create!(name: "Professional Watercolor", brand: "Windsor & Newton", cartridge_capacity: 24, recyclable: true) }
 
-  describe 'As a visitor' do
+  describe 'User Story 12' do
     describe 'When I visit the Update Palette form by clicking a link on the palette show page' do
       it 'I can update Palette attributes' do
         visit "/palettes/#{palette.id}"
