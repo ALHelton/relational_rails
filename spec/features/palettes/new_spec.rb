@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'New Palette' do
-  describe 'As a visitor' do
+  describe 'User Story 11' do
     describe 'When I visit the new Palette form by clicking a link on the index' do
       it 'I can create a new palette' do
         visit '/palettes'

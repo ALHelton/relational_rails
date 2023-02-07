@@ -10,7 +10,7 @@ RSpec.describe 'New Palette Paint' do
       it 'I see a link to add a new paint for that palette that leads to a form page' do
         visit "/palettes/#{palette.id}/paints"
         
-        click_link('New Paint')
+        click_link('Create Paint')
 
         expect(current_path).to eq("/palettes/#{palette.id}/paints/new")
       end

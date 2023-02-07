@@ -9,30 +9,36 @@ RSpec.describe 'Palettes index page' do
   let!(:palette) { Palette.create!(name: "Professional Watercolor", brand: "Windsor & Newton", cartridge_capacity: 24, recyclable: true) }
   let!(:palette_2) { Palette.create!(name: "Professional Goache", brand: "Windsor & Newton", cartridge_capacity: 12, recyclable: false) }
 
-  it 'displays all Palette names' do
+  describe 'User Story 1' do
+    it 'displays all Palette names' do
 
-    visit "/palettes"
+      visit "/palettes"
 
-    expect(page).to have_content(palette.name)
-    expect(page).to have_content(palette.created_at)
+      expect(page).to have_content(palette.name)
+      expect(page).to have_content(palette.created_at)
 
-    expect(page).to have_content(palette_2.name)
-    expect(page).to have_content(palette_2.created_at)
+      expect(page).to have_content(palette_2.name)
+      expect(page).to have_content(palette_2.created_at)
+    end
   end
 
-  it 'displays palette names in descending order' do
+  describe 'User Story 6' do
+    it 'displays palette names in descending order' do
 
-    visit "/palettes"
+      visit "/palettes"
 
-    expect(palette_2.name).to appear_before(palette.name)
+      expect(palette_2.name).to appear_before(palette.name)
+    end
   end
 
-  it 'displays paints index at the top of page' do
-    visit "/palettes"
+  describe 'User Story 8' do
+    it 'displays paints index at the top of page' do
+      visit "/palettes"
 
-    click_on "All Paints"
+      click_on "All Paints"
 
-    expect(current_path).to eq("/paints")
+      expect(current_path).to eq("/paints")
+    end
   end
 
 end
