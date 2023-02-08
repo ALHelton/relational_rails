@@ -40,5 +40,4 @@ RSpec.describe 'Palettes index page' do
       expect(current_path).to eq("/paints")
     end
   end
-
 end

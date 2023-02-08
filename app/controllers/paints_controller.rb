@@ -1,6 +1,6 @@
 class PaintsController < ApplicationController
   def index
-    @paints = Paint.all
+    @paints = Paint.true_opaque
   end
 
   def show
