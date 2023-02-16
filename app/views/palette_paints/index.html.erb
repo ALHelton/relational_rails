@@ -1,6 +1,7 @@
 <h1><%= @palette.name %></h1>
 
 <%= link_to 'Create Paint', "/palettes/#{@palette.id}/paints/new" %>
+<%= link_to 'Sort Paint A-Z', sort: "alphabetical" %>
 
 <% @paints.each do |paint| %>
   <h3>Paint Name: <%= paint.paint_name %></h3>

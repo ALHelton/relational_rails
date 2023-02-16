@@ -24,6 +24,5 @@ RSpec.describe Palette do
         end
       end
     end
-
   end
 end

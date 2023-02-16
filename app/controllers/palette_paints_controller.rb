@@ -1,7 +1,11 @@
 class PalettePaintsController < ApplicationController
   def index
     @palette = Palette.find(params[:id])
-    @paints = @palette.paints
+    if params[:sort] == "alphabetical"
+      @paints = @palette.paints.sort_alpha
+    else
+      @paints = @palette.paints
+    end
   end
 
   def new
