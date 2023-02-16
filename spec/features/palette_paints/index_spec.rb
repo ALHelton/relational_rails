@@ -12,6 +12,7 @@ RSpec.describe 'Palette Paints index page' do
   let!(:paint) { Paint.create!(paint_name: "Alizarin Crimson", medium: "Watercolor", series: 1, opaque: false, palette_id: palette.id) }
   let!(:paint_2) { Paint.create(paint_name: "French Ultramarine", medium: "Watercolor", series: 2, opaque: false, palette_id: palette.id) }
   let!(:paint_3) { Paint.create(paint_name: "Permanent Sap Green", medium: "Watercolor", series: 1, opaque: false, palette_id: palette.id) }
+  let!(:paint_6) { Paint.create(paint_name: "Burnt Sienna", medium: "Watercolor", series: 1, opaque: false, palette_id: palette.id) }
   let!(:paint_4) { Paint.create(paint_name: "Orange Lake Deep", medium: "Gouache", series: 1, opaque: true, palette_id: palette_2.id) }
   let!(:paint_5) { Paint.create(paint_name: "Oxide of Chromium", medium: "Gouache", series: 2, opaque: false, palette_id: palette_2.id) }
 
@@ -36,6 +37,19 @@ RSpec.describe 'Palette Paints index page' do
       expect(page).to have_content(paint_3.series)
       expect(page).to have_content(paint_3.opaque)
       expect(page).to have_content(paint_3.palette_id)
+    end
+  end
+
+  describe 'User Story 16' do
+    it "displays all palette paints alphabetically by name when sort link is clicked" do
+      
+      visit "/palettes/#{palette.id}/paints"
+
+      click_link "Sort Paint A-Z"
+      expect(current_path).to eq("/palettes/#{palette.id}/paints")
+      
+      expect(paint.paint_name).to appear_before(paint_2.paint_name)
+      expect(paint_6.paint_name).to appear_before(paint_3.paint_name)
     end
   end
 end

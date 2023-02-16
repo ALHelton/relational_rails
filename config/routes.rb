@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   patch '/palettes/:id', to: 'palettes#update'
 
   get '/palettes/:id/paints/new', to: 'palette_paints#new'
-  post '/palettes/:id/paints/new', to: 'palette_paints#create'
+  post '/palettes/:id/paints', to: 'palette_paints#create'
 
   get '/paints/:id/edit', to: 'paints#edit'
   patch '/paints/:id', to: 'paints#update'
