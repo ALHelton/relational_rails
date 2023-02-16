@@ -40,4 +40,13 @@ RSpec.describe 'Palettes index page' do
       expect(current_path).to eq("/paints")
     end
   end
+
+  describe 'User Story 17' do
+    it 'displays an edit link next to each Palette' do
+      visit "/palettes"
+      first(:link, "Edit").click
+      # palette_2 comes before palette on page in test data
+      expect(current_path).to eq("/palettes/#{palette_2.id}/edit")
+    end
+  end
 end

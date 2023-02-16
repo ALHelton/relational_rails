@@ -1,10 +1,12 @@
 <h1>Palettes</h1>
 
 <%= link_to 'New Palette', '/palettes/new' %>
-
+<br>
+<br>
 <% @palettes.each do |palette| %>
 
   <h3><%= palette.name %></h3>
+  <%= link_to "Edit", "/palettes/#{palette.id}/edit"%>
   <p>Created At: <%= palette.created_at%></p>
-
+  <br>
 <% end %>
