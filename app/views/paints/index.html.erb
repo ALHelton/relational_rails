@@ -2,6 +2,7 @@
 
 <% @paints.each do |paint| %>
   <h3>Paint Name: <%= paint.paint_name %></h3>
+  <%= link_to "Edit", "/paints/#{paint.id}/edit" %>
   <p>Medium: <%= paint.medium%></p>
   <p>Series: <%= paint.series%></p>
   <p>Opaque: <%= paint.opaque%></p>
