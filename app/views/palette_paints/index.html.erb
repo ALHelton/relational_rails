@@ -2,6 +2,15 @@
 
 <%= link_to 'Create Paint', "/palettes/#{@palette.id}/paints/new" %>
 <%= link_to 'Sort Paint A-Z', sort: "alphabetical" %>
+<br>
+<br>
+<div id="paint-series-select">
+<%= form_with url: "/palettes/#{@palette.id}/paints", method: :get, local: true do |form| %>
+    <%# <%= form.label :series, "Series Filter: " %>
+    Only show paints with Series number greater than: <%= form.number_field :series %>
+    <%= form.submit 'Submit' %></p>
+<% end %>
+
 
 <% @paints.each do |paint| %>
   <h3>Paint Name: <%= paint.paint_name %></h3>

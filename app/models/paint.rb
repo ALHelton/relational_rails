@@ -8,4 +8,8 @@ class Paint < ApplicationRecord
   def self.sort_alpha
     order(:paint_name)
   end
+
+  def self.series_filter(num)
+    where("series > #{num}")
+  end
 end

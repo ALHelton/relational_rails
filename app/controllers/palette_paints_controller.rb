@@ -3,6 +3,8 @@ class PalettePaintsController < ApplicationController
     @palette = Palette.find(params[:id])
     if params[:sort] == "alphabetical"
       @paints = @palette.paints.sort_alpha
+    elsif params[:series]
+      @paints = @palette.paints.series_filter(params[:series])
     else
       @paints = @palette.paints
     end

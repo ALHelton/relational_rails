@@ -29,5 +29,13 @@ RSpec.describe Paint do
         end
       end
     end
+
+    describe 'User Story 21' do
+      describe '::series_filter' do
+        it 'Only returns records with more than `number` of `column_name`' do
+          expect(Paint.series_filter(2)).to eq([paint_2, paint_4])
+        end
+      end
+    end
   end
 end
