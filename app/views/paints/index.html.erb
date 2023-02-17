@@ -1,7 +1,7 @@
 <h1>Paints</h2>
 
 <% @paints.each do |paint| %>
-  <h3>Paint Name: <%= paint.paint_name %></h3>
+  <h3><%= link_to "#{paint.paint_name}", "/paints/#{paint.id}" %></h3>
   <%= link_to "Edit", "/paints/#{paint.id}/edit" %>
   <br>
   <%= link_to "Delete", "/paints/#{paint.id}", method: :delete, data:

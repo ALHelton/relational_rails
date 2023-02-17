@@ -89,4 +89,16 @@ RSpec.describe 'Palette Paints index page' do
       expect(page).to_not have_content(paint.paint_name)
     end
   end
+
+  describe 'palette_paint name display links' do
+    it 'name of palette paint links to that paint`s show page' do
+      visit "/palettes/#{palette.id}/paints"
+
+      expect(page).to have_link("#{paint.paint_name}")
+
+      click_link "#{paint.paint_name}"
+
+      expect(current_path).to eq("/paints/#{paint.id}")
+    end
+  end
 end
