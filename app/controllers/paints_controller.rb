@@ -18,6 +18,12 @@ class PaintsController < ApplicationController
     redirect_to "/paints/#{paint.id}"
   end
 
+  def destroy
+    paint = Paint.find(params[:id])
+    paint.destroy
+    redirect_to "/paints"
+  end
+
   private
 
   def paint_params
