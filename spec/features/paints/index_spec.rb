@@ -59,4 +59,15 @@ RSpec.describe 'Paints index page' do
       expect(page).to_not have_content(paint_4.opaque)
     end
   end
+
+  describe 'User Story 18' do
+    it 'Next to each paint, there is an edit link that takes you to paint edit page' do
+      visit "/paints"
+
+      expect(page).to have_link("Edit")
+
+      first(:link, "Edit").click
+      expect(current_path).to eq("/paints/#{paint.id}/edit")
+    end
+  end
 end
