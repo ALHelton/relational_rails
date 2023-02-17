@@ -6,3 +6,6 @@
 <p>Palette ID: <%= @paint.palette_id %></p>
 
 <%= link_to "Update Paint", "/paints/#{@paint.id}/edit"%>
+<br>
+<%= link_to "Delete Paint", "/paints/#{@paint.id}", method: :delete, data:
+  { confirm: "Delete #{@paint.paint_name}?" } %>
