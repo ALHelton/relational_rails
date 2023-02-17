@@ -7,4 +7,6 @@
 <p>Recyclable? <%= @palette.recyclable %></p>
 <br>
 <%= link_to "Update Palette", "/palettes/#{@palette.id}/edit"%>
-
+<br>
+<%= link_to "Delete Palette", "/palettes/#{@palette.id}", method: :delete, data:
+  { confirm: "Delete #{@palette.name}?" } %>
