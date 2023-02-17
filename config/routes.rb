@@ -22,5 +22,6 @@ Rails.application.routes.draw do
 
   delete "/palettes/:id", to: 'palettes#destroy'
   delete "/paints/:id", to: 'paints#destroy'
+  delete "/palettes", to: 'palettes#destroy'
 
 end

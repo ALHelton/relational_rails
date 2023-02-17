@@ -52,4 +52,15 @@ RSpec.describe 'Palettes index page' do
       expect(current_path).to eq("/palettes/#{palette_2.id}/edit")
     end
   end
+
+  describe 'User Story 22' do
+    it 'displays Delete Palette link, removes the palette from the page' do
+      visit "/palettes"
+
+      first(:link, "Delete").click
+
+      expect(current_path).to eq("/palettes")
+      expect(page).to_not have_content(palette_2.name)
+    end
+  end
 end
