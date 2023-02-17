@@ -78,4 +78,15 @@ RSpec.describe 'Palette Paints index page' do
       end
     end
   end
+
+  describe 'User Story 23' do
+    it 'displays Delete Paint link, removes the paint from the palette_paints index page' do
+      visit "/palettes/#{palette.id}/paints"
+
+      first(:link, "Delete").click
+
+      expect(current_path).to eq("/paints")
+      expect(page).to_not have_content(paint.paint_name)
+    end
+  end
 end

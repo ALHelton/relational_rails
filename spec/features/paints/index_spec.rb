@@ -70,4 +70,15 @@ RSpec.describe 'Paints index page' do
       expect(current_path).to eq("/paints/#{paint.id}/edit")
     end
   end
+
+  describe 'User Story 23' do
+    it 'displays Delete Paint link, removes the paint from the paints index page' do
+      visit "/paints"
+
+      first(:link, "Delete").click
+
+      expect(current_path).to eq("/paints")
+      expect(page).to_not have_content(paint.paint_name)
+    end
+  end
 end
