@@ -63,4 +63,16 @@ RSpec.describe 'Palettes index page' do
       expect(page).to_not have_content(palette_2.name)
     end
   end
+
+  describe 'index palette name display links' do
+    it 'name of palette links to that palette`s show page' do
+      visit "/palettes"
+
+      expect(page).to have_link("#{palette_2.name}")
+
+      click_link "#{palette_2.name}"
+
+      expect(current_path).to eq("/palettes/#{palette_2.id}")
+    end
+  end
 end
