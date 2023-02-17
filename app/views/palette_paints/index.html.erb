@@ -18,4 +18,6 @@
   <p>Series: <%= paint.series%></p>
   <p>Opaque: <%= paint.opaque%></p>
   <p>Palette ID: <%= paint.palette_id%></p>
+  <%= link_to "Delete", "/paints/#{paint.id}", method: :delete, data:
+  { confirm: "Delete #{paint.paint_name}?" } %>
 <% end %>
