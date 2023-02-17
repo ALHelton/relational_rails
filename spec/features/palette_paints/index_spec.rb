@@ -52,4 +52,30 @@ RSpec.describe 'Palette Paints index page' do
       expect(paint_6.paint_name).to appear_before(paint_3.paint_name)
     end
   end
+
+  describe 'User Story 21' do
+    it 'I see a form that allows me to input a number value' do
+      visit "/palettes/#{palette.id}/paints"
+      within("div#paint-series-select") do 
+        expect(page).to have_field('series')
+        expect(page).to have_button('Submit')
+      end
+    end
+
+    describe 'I input a number value, click the submit, and am redirected back to palette_paints index ' do
+      it 'See only the records that meet that threshold shown' do
+        visit "/palettes/#{palette.id}/paints"
+        
+        fill_in :series, with: 1
+        # save_and_open_page
+        click_button "Submit"
+
+        expect(current_path).to eq("/palettes/#{palette.id}/paints")
+        expect(page).to have_content(paint_2.paint_name)
+        expect(page).to_not have_content(paint.paint_name)
+        expect(page).to_not have_content(paint_3.paint_name)
+        expect(page).to_not have_content(paint_6.paint_name)
+      end
+    end
+  end
 end
