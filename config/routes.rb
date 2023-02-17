@@ -19,4 +19,6 @@ Rails.application.routes.draw do
 
   get '/paints/:id/edit', to: 'paints#edit'
   patch '/paints/:id', to: 'paints#update'
+
+  delete "/palettes/:id", to: 'palettes#destroy'
 end

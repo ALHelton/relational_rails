@@ -27,6 +27,13 @@ class PalettesController < ApplicationController
     redirect_to "/palettes/#{palette.id}"
   end
 
+  def destroy
+    palette = Palette.find(params[:id])
+    palette.paints.destroy_all
+    palette.destroy
+    redirect_to '/palettes'
+  end
+
   private
 
   def palette_params

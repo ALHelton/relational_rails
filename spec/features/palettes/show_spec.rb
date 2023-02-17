@@ -47,4 +47,25 @@ RSpec.describe 'Palettes show page' do
       expect(current_path).to eq("/palettes/#{palette.id}/paints")
     end
   end
+
+  describe 'User Story 12' do
+    it 'displays Update Palette link, links to edit page' do
+      visit "/palettes/#{palette.id}"
+
+      click_on "Update Palette"
+
+      expect(current_path).to eq("/palettes/#{palette.id}/edit")
+    end
+  end
+
+  describe 'User Story 19' do
+    it 'displays Delete Palette link, removes the palette from the page' do
+      visit "/palettes/#{palette.id}"
+
+      click_on "Delete Palette"
+
+      expect(current_path).to eq("/palettes")
+      expect(page).to_not have_content(palette.name)
+    end
+  end
 end
